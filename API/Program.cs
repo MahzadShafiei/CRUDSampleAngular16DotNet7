@@ -29,8 +29,9 @@ namespace API
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
+            app.UseAuthorization();
 
             app.MapControllers();
 
