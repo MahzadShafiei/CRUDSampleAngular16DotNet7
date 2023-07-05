@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,16 @@ namespace API.Controllers
         {
             var employees= await _context.Employees.ToListAsync();
             return Ok(employees);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] Employee employee)
+        {
+            employee.Id = Guid.NewGuid();
+            await _context.Employees.AddAsync(employee);
+            await _context.SaveChangesAsync();
+
+            return Ok(employee);
         }
     }
 }
