@@ -45,5 +45,24 @@ namespace API.Controllers
             return Ok(employee);
         }
 
+        [HttpPut]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] Employee updatedEmployee)
+        {
+            var employee= await _context.Employees.FirstOrDefaultAsync(c=> c.Id == id);
+
+            if(employee == null)
+                return NotFound();
+
+            employee.Name = updatedEmployee.Name;
+            employee.Email = updatedEmployee.Email;
+            employee.Phone = updatedEmployee.Phone;
+            employee.Salary = updatedEmployee.Salary;
+            employee.Department = updatedEmployee.Department;
+
+            await _context.SaveChangesAsync();
+            return Ok(employee);
+        }
+
     }
 }
