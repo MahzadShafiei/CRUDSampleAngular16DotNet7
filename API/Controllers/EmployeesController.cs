@@ -64,5 +64,18 @@ namespace API.Controllers
             return Ok(employee);
         }
 
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        {
+            var employee= await _context.Employees.FirstOrDefaultAsync(e=> e.Id == id);
+
+            if(employee == null)
+                return NotFound();
+
+            _context.Employees.Remove(employee);
+            await _context.SaveChangesAsync();
+            return Ok(employee);
+        }
     }
 }
