@@ -1,0 +1,37 @@
+<div class="container my-5">
+<h1 class="mb-3">Add New Employee</h1>
+
+<div class="row">
+    <div class="col-6">
+        <form #form="ngForm" (ngSubmit)="addEmployee()">
+            <div class="mb-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name"
+                name="name" [(ngModel)]="newEmploye.name">                
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email"
+                name="email" [(ngModel)]="newEmploye.email">                
+            </div>
+            <div class="mb-3">
+                <label for="phone">Phone</label>
+                <input type="number" class="form-control" id="phone" placeholder="Enter phone"
+                name="phone" [(ngModel)]="newEmploye.phone">                
+            </div>
+            <div class="mb-3">
+                <label for="salary">Salary</label>
+                <input type="number" class="form-control" id="salary" placeholder="Enter salary"
+                name="salary" [(ngModel)]="newEmploye.salary">                
+            </div>
+            <div class="mb-3">
+                <label for="department">Department</label>
+                <input type="text" class="form-control" id="department" placeholder="Enter department"
+                name="department" [(ngModel)]="newEmploye.department">                
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+</div>

@@ -9,13 +9,17 @@ import { Observable } from 'rxjs';
 })
 export class EmployeesService {
 
-  //baseApiURL: string = environment.baseApiURL;
+  baseApiURL: string = environment.baseApiURL;
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Employee[]>
   {
-    //return this.http.get<Employee[]>(this.baseApiURL + '/api/employees');
-    return this.http.get<Employee[]>('https://localhost:7092/api/employees');
+    return this.http.get<Employee[]>(this.baseApiURL + '/api/employees');    
+  }
+
+  add(newEmploye: Employee) : Observable<Employee>
+  {
+    return this.http.post<Employee>(this.baseApiURL + '/api/employees',newEmploye);
   }
 }
