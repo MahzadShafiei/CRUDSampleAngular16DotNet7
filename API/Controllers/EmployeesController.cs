@@ -19,7 +19,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetALL()
         {
-            var employees= await _context.Employees.ToListAsync();
+            var employees = await _context.Employees.ToListAsync();
             return Ok(employees);
         }
 
@@ -32,5 +32,18 @@ namespace API.Controllers
 
             return Ok(employee);
         }
+
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> Get([FromRoute]Guid id)
+        {
+            var employee= await _context.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            
+            if (employee == null)
+                return NotFound();
+            
+            return Ok(employee);
+        }
+
     }
 }
