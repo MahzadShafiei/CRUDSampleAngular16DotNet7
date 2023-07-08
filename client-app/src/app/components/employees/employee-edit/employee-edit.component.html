@@ -1,0 +1,43 @@
+<div class="container my-5">
+    <h1 class="mb-3">Edit Employee</h1>
+    
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="editEmployee()">
+                <div class="mb-3">
+                    <label for="id">Id</label>
+                    <input type="text" class="form-control" id="id" readonly
+                    name="id" [(ngModel)]="employee.id">                
+                </div>
+                <div class="mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name"
+                    name="name" [(ngModel)]="employee.name">                
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email"
+                    name="email" [(ngModel)]="employee.email">                
+                </div>
+                <div class="mb-3">
+                    <label for="phone">Phone</label>
+                    <input type="number" class="form-control" id="phone" placeholder="Enter phone"
+                    name="phone" [(ngModel)]="employee.phone">                
+                </div>
+                <div class="mb-3">
+                    <label for="salary">Salary</label>
+                    <input type="number" class="form-control" id="salary" placeholder="Enter salary"
+                    name="salary" [(ngModel)]="employee.salary">                
+                </div>
+                <div class="mb-3">
+                    <label for="department">Department</label>
+                    <input type="text" class="form-control" id="department" placeholder="Enter department"
+                    name="department" [(ngModel)]="employee.department">                
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+    </div>
+    
+    </div>
+    

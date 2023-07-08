@@ -22,4 +22,14 @@ export class EmployeesService {
   {
     return this.http.post<Employee>(this.baseApiURL + '/api/employees',newEmploye);
   }
+
+  get(id:string):Observable<Employee>
+  {
+    return this.http.get<Employee>(this.baseApiURL + '/api/employees/' + id);
+  }
+
+  update(id:string, updatedEmployee:Employee):Observable<Employee>
+  {
+    return this.http.put<Employee>(this.baseApiURL + '/api/employees/' + id, updatedEmployee)
+  }
 }
