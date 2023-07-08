@@ -10,6 +10,7 @@
         <th>Salary</th>
         <th>Department</th>
         <th> </th>
+        <th> </th>
     </tr>
 </thead>
 <tbody>
@@ -20,7 +21,9 @@
         <td>{{employee.phone}}</td>
         <td>{{employee.salary}}</td>
         <td>{{employee.department}}</td>
-        <td><a [routerLink]="['/employees','edit',employee.id]">Edit</a></td>
+        <!-- <td><a [routerLink]="['/employees','edit',employee.id]">Edit</a></td> -->
+        <td><button type="button" class="btn btn-primary" (click)="edit(employee.id)">Edit</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="delete(employee.id)">Delete</button></td>
     </tr>
 </tbody>
 </table>
